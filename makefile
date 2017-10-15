@@ -6,12 +6,16 @@ OBJ=obj
 DFLAGS=-DDEBUG
 #DFLAGS=
 
-all: lib test
+all: dirs lib test
 
 clean:
 	rm $(OBJ)/*.o
 	rm lib/*
 	rm test
+
+dirs:
+	mkdir obj
+	mkdir lib
 
 test: $(OBJ)/main.o $(OBJ)/intType.o $(OBJ)/tPoint.o $(OBJ)/nAngle.o
 	gcc -o test -L lib/ -larray $(OBJ)/main.o $(OBJ)/intType.o $(OBJ)/tPoint.o $(OBJ)/nAngle.o

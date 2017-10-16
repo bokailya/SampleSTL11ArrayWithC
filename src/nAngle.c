@@ -5,26 +5,26 @@
 #include "nAngle.h"
 
 void* allocNAngle(){
-	    tNAngle* res=malloc(sizeof(tNAngle));
-		    res->n=MaxAngles;
-			    res->arr=malloc(sizeof(tPoint)*MaxAngles);
-				    return res;
+	tNAngle* res=malloc(sizeof(tNAngle));
+	res->n=MaxAngles;
+	res->arr=malloc(sizeof(tPoint)*MaxAngles);
+	return res;
 }
 
 void putNAngle(void* to,void* from){
-	    tNAngle* toN=to;
-		    tNAngle* fromN=from;
+	tNAngle* toN=to;
+	tNAngle* fromN=from;
 
-			    int i;
-				    toN->n=fromN->n;
-					    for(i=0;i<fromN->n;i++)
-							        toN->arr[i]=fromN->arr[i];
+	int i;
+	toN->n=fromN->n;
+	for(i=0;i<fromN->n;i++)
+		toN->arr[i]=fromN->arr[i];
 }
 
 void freeNAngle(void* pointer){
-	    tNAngle* pt=pointer;
-		    free(pt->arr);
-			    free(pt);
+	tNAngle* pt=pointer;
+	free(pt->arr);
+	free(pt);
 }
 
 void printNAngle(const tNAngle* const obj){
